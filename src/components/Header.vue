@@ -77,7 +77,6 @@ header {
 
 .main-nav a.is-first {
   background-color: var(--color-accent);
-  color: var(--text-color-dark);
   font-weight: 800;
 }
 
