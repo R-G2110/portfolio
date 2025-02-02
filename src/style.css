@@ -50,7 +50,7 @@ body {
   font-size: var(--font-base);
   font-weight: 300;
   line-height: 1.5;
-  color: var(--dawn-light);
+  color: var(--white);
   background-color: var(--dawn-dark);
 }
 

@@ -6,7 +6,7 @@ export default {
       links: [
         { name: 'home', label: 'ad' },
         { name: 'work', label: 'work' },
-        { name: 'worklayout', label: 'work layout' },
+        // { name: 'worklayout', label: 'work layout' },
         { name: 'tecnologies', label: 'tecnologies' },
         { name: 'about', label: 'about me' },
       ],
