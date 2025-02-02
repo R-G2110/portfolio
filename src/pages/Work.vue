@@ -1,22 +1,8 @@
 <script>
 export default {
-  data() {
-    return {
-      dots: "", 
-    };
-  },
-  mounted() {
-    this.animateDots(); 
-  },
-  methods: {
-    animateDots() {
-      let count = 0;
-      setInterval(() => {
-        count = (count + 1) % 4; 
-        this.dots = ".".repeat(count); 
-      }, 1500); 
-    },
-  },
+  data() {},
+  mounted() {},
+  methods: {},
 };
 </script>
 
