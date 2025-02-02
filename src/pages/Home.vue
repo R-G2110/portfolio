@@ -5,7 +5,7 @@
 
     <!-- Bottone per generare le bolle con effetto click -->
     <button class="action-button" @click="handleButtonClick" :class="{ clicked: isButtonClicked }">
-      Click me for some bubbles
+      Click for some bubbles
       <span v-if="ripple" class="ripple" :style="{ left: ripple.x + 'px', top: ripple.y + 'px' }"></span>
     </button>
 
@@ -159,6 +159,7 @@ main {
     overflow: hidden;
     z-index: 999;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--dawn-dark);
     
     &:hover {
       background-color: var(--color-green-light);

@@ -71,45 +71,64 @@ export default {
   width: 800px;
   flex-direction: column;
   align-items: center;
-  h1 {
-    width: fit-content;
-    font-size: var(--font-xxxxl);
-    border-bottom: var(--border-width) solid var(--border-color);
-    text-transform: capitalize;
-  }
-  p {
-    //text-transform: ;
-    padding: 5px 15px;
-    //font-weight: 600;
-    margin-bottom: 50px;
-  }
-  ul {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); // Cinque colonne di larghezza uguale
-    gap: 30px; // Distanza tra gli elementi
-    list-style: none;
-    li { 
-      max-height: 150px;
-      display: grid;
-      padding: 10px;
-      text-align: center;
-      cursor: pointer;
-    }
-    img {
-      width: 100px;
-      height: 100px;
-      transition: scale 0.2s linear
-    }
-    li:hover img {
-      scale: 1.1;
-    }
-    span {
-    text-transform: uppercase;
-    padding: 5px 15px;
-    font-weight: 400;
-    margin-bottom: 50px;
-  }
-  }
 }
+
+h1 {
+  width: fit-content;
+  font-size: var(--font-xxxxl);
+  border-bottom: var(--border-width) solid var(--border-color);
+  text-transform: capitalize;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  padding: 5px 15px;
+  margin-bottom: 50px;
+  color: var(--text-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  list-style: none;
+}
+
+li {
+  max-height: 150px;
+  display: grid;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.2s linear;
+}
+
+// li:hover img {
+//   transform: scale(1.1);
+// }
+
+span {
+  text-transform: uppercase;
+  padding: 5px 15px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 </style>
