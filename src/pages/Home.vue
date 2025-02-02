@@ -132,10 +132,11 @@ main {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0px 0px 10px rgba(0, 0, 0, 0.5);
     line-height: 1;
     margin-bottom: 5px;
     cursor: default;
+    z-index: 999;
   }
 
   .subtitle {
@@ -156,12 +157,14 @@ main {
     cursor: pointer;
     transition: all 0.2s ease;
     overflow: hidden;
+    z-index: 999;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     
     &:hover {
       background-color: var(--color-green-light);
-      color: var(--text-color-light);
+      color: var(--dawn-dark);
       border: 2px solid var(--dawn-dark);
-      box-shadow:  0 0 0 2px var(--color-green-light);
+      box-shadow: 0 0 15px var(--color-green-light);
     }
 
     &.clicked {
