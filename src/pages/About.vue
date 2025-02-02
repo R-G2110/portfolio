@@ -5,7 +5,17 @@ export default {
     return {};
   },
   props: {},
-  methods: {},
+  methods: {
+    sendEmail() {
+      const email = "argeldelacruz86@gmail.com";
+      const subject = encodeURIComponent("Hello Argel!");
+      const body = encodeURIComponent("Hi Argel, I would like to get in touch with you.");
+      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+      
+      // Apre il client email in una nuova scheda
+      window.open(mailtoLink, "_blank");
+    },
+  },
 };
 </script>
 
@@ -13,13 +23,14 @@ export default {
   <main>
     <div class="container">
       <h1>About me</h1>
-      <span class="cta from-bottom">contact me here <i class="fa-solid fa-arrow-right"></i> </span>
+      <span class="cta from-bottom" @click="sendEmail">contact me here <i class="fa-solid fa-arrow-right"></i></span>
       <p>Hi! I’m Argel and I’m a junior full-stack web developer. I love working on the web and making sure it continues to be a place for our creative, personal, and weird passions.</p>
       <p>I usually enjoy experimenting with the web. This portfolio reflects my learning journey and my passion for using web technologies in unexpected ways.</p>
       <p>I am currently exploring new opportunities. When I’m not coding, you’ll find me enjoying pop punk, Dr. Pepper, musicals, playing cards and walking in the park.</p>
     </div>
   </main>
 </template>
+
 
 <style lang="scss" scoped>
 .container {
