@@ -8,18 +8,16 @@ export default {
     Header,
     Footer
   },
-  methods: {},
-  mounted() {},
+  computed: {
+    shouldShowFooter() {
+      return !(this.$route.path === "/" || this.$route.path === "/home");
+    }
+  }
 };
 </script>
 
 <template>
   <Header />
   <RouterView/>
-  <Footer />
-  
+  <Footer v-if="shouldShowFooter" />
 </template>
-
-<style scoped>
-
-</style>
