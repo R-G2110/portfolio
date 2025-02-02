@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="error-wrapper">
     <div class="error-image">
-      <img src="../../public/error-404.jpg" alt="">
+      <img src="/error-404.jpg" alt="">
     </div>
   </div>
 </template>
