@@ -43,6 +43,7 @@ const createRipple = (event) => {
   transition: all 0.2s ease;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: var(--dawn-dark);
+	z-index: 999;
 }
 
 .ripple-button:hover {
