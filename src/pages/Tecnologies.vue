@@ -1,70 +1,33 @@
-<script>
-export default {
-  
-  created() {},
-  data() {
-    return {};
-  },
-  props: {},
-  methods: {},
-};
+<script setup>
+const technologies = [
+  { name: "HTML 5", img: "/html5.png" },
+  { name: "CSS", img: "/css3.png" },
+  { name: "C#", img: "/csharp.png" },
+  { name: "JavaScript", img: "/javascript.png" },
+  { name: "PHP", img: "/php.png" },
+  { name: ".NET", img: "/netcore.png" },
+  { name: "Laravel", img: "/laravel.png" },
+  { name: "Vue.js", img: "/vuejs.png" },
+  { name: "Angular", img: "/angular.png" },
+  { name: "MySQL", img: "/mysql.png" },
+  { name: "SQL Server", img: "/sqlserver.png" },
+];
 </script>
 
 <template>
   <main>
     <div class="container">
-      <h1>tecnologies</h1>
-      <p>These are the tecnologies i usually use:</p>
+      <h1>Technologies</h1>
+      <p>These are the technologies I usually use:</p>
       <ul>
-        <li>
-          <img src="/html5.png" alt="">
-          <span>html 5</span>
-        </li>
-        <li>
-          <img src="/css3.png" alt="">
-          <span>css</span>
-        </li>
-        <li>
-          <img src="/csharp.png" alt="">
-          <span>c#</span>
-        </li>
-        <li>
-          <img src="/javascript.png" alt="">
-          <span>javascript</span>
-        </li>
-        <li>
-          <img src="/php.png" alt="">
-          <span>php</span>
-        </li>
-        <li>
-          <img src="/netcore.png" alt="">
-          <span>.net</span>
-        </li>
-        <li>
-          <img src="/laravel.png" alt="">
-          <span>laravel</span>
-        </li>
-        <li>
-          <img src="/vuejs.png" alt="">
-          <span>vue js</span>
-        </li>
-        <li>
-          <img src="/angular.png" alt="">
-          <span>angular</span>
-        </li>
-        <li>
-          <img src="/mysql.png" alt="">
-          <span>mysql</span>
-        </li>
-        <li>
-          <img src="/sqlserver.png" alt="">
-          <span>sql server</span>
+        <li v-for="tech in technologies" :key="tech.name">
+          <img :src="tech.img" :alt="tech.name" />
+          <span>{{ tech.name }}</span>
         </li>
       </ul>
     </div>
   </main>
 </template>
-
 
 <style lang="scss" scoped>
 .container {
@@ -119,10 +82,6 @@ img {
   transition: transform 0.2s linear;
 }
 
-// li:hover img {
-//   transform: scale(1.1);
-// }
-
 span {
   text-transform: uppercase;
   padding: 5px 15px;
@@ -130,5 +89,4 @@ span {
   margin-bottom: 50px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
-
 </style>
