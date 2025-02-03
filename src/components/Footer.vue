@@ -1,20 +1,34 @@
 <script>
-	export default {
-		name: 'Footer',
-	}
+import { sendEmail } from "../components/utilities/emailUtils";
+import { openLinkedIn } from "../components/utilities/socialUtils";
+
+export default {
+  name: "Footer",
+  methods: {
+    sendEmail, // Usa la funzione email
+    openLinkedIn, // Usa la funzione LinkedIn
+  },
+};
 </script>
 
 <template>
-	<footer>
-		<nav>
-			<ul>
-        <li><a href="#"><i class="fa-regular fa-envelope"></i></a></li>
-        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+  <footer>
+    <nav>
+      <ul>
+        <li>
+          <span @click.prevent="sendEmail">
+            <i class="fa-regular fa-envelope"></i>
+          </span>
+        </li>
+        <li>
+          <span @click="openLinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </span>
+        </li>
       </ul>
-		</nav>
-	</footer>
+    </nav>
+  </footer>
 </template>
-
 
 <style scoped>
 footer {
@@ -43,13 +57,14 @@ footer nav ul li {
   margin-left: 20px;
 }
 
-footer nav ul li a i {
+footer nav ul li span i {
   font-size: var(--font-md);
   color: var(--text-color);
   transition: scale 0.2s linear;
+  cursor: pointer;
 }
 
-footer nav ul li a:hover i {
+footer nav ul li span:hover i {
   color: var(--color-accent);
   scale: 1.3;
 }

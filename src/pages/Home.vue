@@ -107,7 +107,7 @@ const explodeBubble = (index) => {
       bubble.exploded = true;
       bubble.growing = false;
       bubbles.value.splice(index, 1); // Rimuove la bolla
-    }, 500);
+    }, 600);
   }
 };
 
