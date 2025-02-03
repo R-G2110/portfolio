@@ -7,10 +7,18 @@
 
   /* Palette di colori */
   --color-green-light: #7fff00;
-  --color-green-medium: #5b823c;
-  --color-green-dark: #3d601e;
   --color-accent: #D79B67;
   --color-accent-light: #e2b68f;
+  --color-red-bright: #ff1744;
+  --color-orange-bright: #ff9100;
+  --color-yellow-bright: #ffea00;
+  --color-lime-bright: #c6ff00;
+  --color-cyan-bright: #00e5ff;
+  --color-blue-bright: #2979ff;
+  --color-purple-bright: #651fff;
+  --color-pink-bright: #f50057;
+  --color-magenta-bright: #d500f9;
+  --color-turquoise-bright: #00bfa5;
 
   /* Tipografia */
   --font-base: 1rem;

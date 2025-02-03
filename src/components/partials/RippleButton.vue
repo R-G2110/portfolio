@@ -6,6 +6,22 @@ const props = defineProps({
 });
 
 const ripple = ref(null);
+const hoverColor = ref("--color-green-light"); // Colore predefinito
+
+// Array di colori vivaci definiti in :root
+const colors = [
+  "--color-red-bright",
+  "--color-orange-bright",
+  "--color-yellow-bright",
+  "--color-lime-bright",
+  "--color-cyan-bright",
+  "--color-blue-bright",
+  "--color-purple-bright",
+  "--color-pink-bright",
+  "--color-magenta-bright",
+  "--color-turquoise-bright",
+  "--color-accent"
+];
 
 const createRipple = (event) => {
   const rect = event.target.getBoundingClientRect();
@@ -14,15 +30,25 @@ const createRipple = (event) => {
     y: event.clientY - rect.top,
   };
 
-  // Rimuove l'effetto dopo un breve momento
   setTimeout(() => {
     ripple.value = null;
   }, 300);
 };
+
+// Cambia il colore del bottone in hover
+const changeHoverColor = () => {
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  hoverColor.value = colors[randomIndex]; // Seleziona un colore casuale
+};
 </script>
 
 <template>
-  <button class="ripple-button" @click="createRipple">
+  <button
+    class="ripple-button"
+    @click="createRipple"
+    @mouseover="changeHoverColor"
+    :style="{ '--hover-color': `var(${hoverColor})` }"
+  >
     {{ label }}
     <span v-if="ripple" class="ripple" :style="{ left: ripple.x + 'px', top: ripple.y + 'px' }"></span>
   </button>
@@ -32,25 +58,25 @@ const createRipple = (event) => {
 .ripple-button {
   position: relative;
   overflow: hidden;
-	font-size: var(--font-sm);
-	font-weight: bold;
+  font-size: var(--font-sm);
+  font-weight: bold;
   padding: 10px 20px;
   border: 2px solid var(--white);
   border-radius: 8px;
   background-color: transparent;
   color: #fff;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: var(--dawn-dark);
-	z-index: 999;
+  z-index: 999;
 }
 
 .ripple-button:hover {
-  background-color: var(--color-green-light);
+  background-color: var(--hover-color);
   color: var(--dawn-dark);
   border: 2px solid var(--dawn-dark);
-  box-shadow: 0 0 15px var(--color-green-light);
+  box-shadow: 0 0 15px var(--hover-color);
 }
 
 .ripple {
@@ -73,4 +99,5 @@ const createRipple = (event) => {
     opacity: 0;
   }
 }
+
 </style>

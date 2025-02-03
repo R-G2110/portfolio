@@ -10,14 +10,9 @@ export default {
         { name: 'tecnologies', label: 'tecnologies' },
         { name: 'about', label: 'about me' },
       ],
-      menuOpen: false, // Stato per aprire/chiudere il menu
     };
   },
-  methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen; // Cambia lo stato di "menuOpen"
-    },
-  },
+  methods: {},
 };
 </script>
 

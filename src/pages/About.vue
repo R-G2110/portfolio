@@ -7,7 +7,7 @@ export default {
   },
   props: {},
   methods: {
-    sendEmail, // Ora puoi usarla direttamente nel template
+    sendEmail, // Usa la funzione email
   },
 };
 </script>
