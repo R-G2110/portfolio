@@ -1,63 +1,17 @@
-<template>
-  <main>
-    <div class="title">argel allan dela cruz</div>
-    <div class="subtitle">junior web developer</div>
-
-    <!-- Bottone per generare le bolle con effetto click -->
-    <button class="action-button" @click="handleButtonClick" :class="{ clicked: isButtonClicked }">
-      Click for some bubbles
-      <span v-if="ripple" class="ripple" :style="{ left: ripple.x + 'px', top: ripple.y + 'px' }"></span>
-    </button>
-
-    <!-- Contenitore per le bolle -->
-    <div class="bubble-container">
-      <div
-        v-for="(bubble, index) in bubbles"
-        :key="index"
-        class="bubble"
-        :class="{ explode: bubble.exploding, growing: !bubble.exploded && !bubble.exploding }"
-        :style="{
-          left: bubble.x + 'px',
-          top: bubble.y + 'px',
-          backgroundColor: bubble.color
-        }"
-        @click="explodeBubble(index)"
-      ></div>
-    </div>
-  </main>
-</template>
-
 <script setup>
 import { ref, onUnmounted } from "vue";
+import RippleButton from "../components/partials/RippleButton.vue"; // Importa il componente RippleButton
 
 const bubbles = ref([]);
-const isButtonClicked = ref(false);
-const ripple = ref(null);
 let explosionInterval = null; // Timer per esplodere bolle casualmente ogni 1.5 sec
 
 // Funzione per generare un numero casuale tra due valori
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // Effetto di click sul bottone
-const handleButtonClick = (event) => {
-  isButtonClicked.value = true;
-
-  // Effetto onda (ripple)
-  const rect = event.target.getBoundingClientRect();
-  ripple.value = {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top,
-  };
-
-  // Rimuove l'effetto dopo un breve momento
-  setTimeout(() => {
-    isButtonClicked.value = false;
-    ripple.value = null;
-  }, 300);
-
+const handleButtonClick = () => {
   createBubbles(); // Genera le bolle
 };
-
 
 const createBubbles = () => {
   const numBubbles = getRandomInt(200, 400); // Numero casuale di bolle
@@ -117,6 +71,32 @@ onUnmounted(() => {
 });
 </script>
 
+<template>
+  <main>
+    <div class="title">argel allan dela cruz</div>
+    <div class="subtitle">junior web developer</div>
+
+    <!-- Usa il componente RippleButton con l'etichetta "Click for some bubbles" -->
+    <RippleButton label="Click for some bubbles" @click="handleButtonClick" />
+
+    <!-- Contenitore per le bolle -->
+    <div class="bubble-container">
+      <div
+        v-for="(bubble, index) in bubbles"
+        :key="index"
+        class="bubble"
+        :class="{ explode: bubble.exploding, growing: !bubble.exploded && !bubble.exploding }"
+        :style="{
+          left: bubble.x + 'px',
+          top: bubble.y + 'px',
+          backgroundColor: bubble.color
+        }"
+        @click="explodeBubble(index)"
+      ></div>
+    </div>
+  </main>
+</template>
+
 <style lang="scss" scoped>
 main {
   height: calc(100vh - 200px);
@@ -144,111 +124,56 @@ main {
     margin-bottom: 100px;
   }
 
-  .action-button {
-    position: relative;
-    font-size: var(--font-sm);
-    font-weight: bold;
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: 2px solid var(--white);
-    border-radius: 8px;
-    background-color: transparent;
-    color: #fff;
+  .bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+
+  .bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: all 0.2s ease;
-    overflow: hidden;
-    z-index: 999;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-    background-color: var(--dawn-dark);
-    
-    &:hover {
-      background-color: var(--color-green-light);
-      color: var(--dawn-dark);
-      border: 2px solid var(--dawn-dark);
-      box-shadow: 0 0 15px var(--color-green-light);
-    }
+    pointer-events: all;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s, opacity 0.3s;
+  }
 
-    &.clicked {
-      transform: scale(0.95);
-    }
+  .growing {
+    animation: grow 0.3s ease-out forwards;
+  }
 
-    .ripple {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
+  @keyframes grow {
+    0% {
       transform: scale(0);
-      animation: ripple-effect 0.4s ease-out forwards;
+    }
+    100% {
+      transform: scale(1);
     }
   }
-}
 
-/* Effetto onda (ripple) */
-@keyframes ripple-effect {
-  0% {
-    transform: scale(0);
-    opacity: 0.8;
+  .explode {
+    animation: explode 0.5s ease-out forwards;
   }
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
-}
 
-/* Contenitore per le bolle */
-.bubble-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-}
-
-/* Stile delle bolle con effetto di crescita */
-.bubble {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  pointer-events: all;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-/* Animazione di crescita della bolla */
-.growing {
-  animation: grow 0.3s ease-out forwards;
-}
-
-@keyframes grow {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Effetto esplosione */
-.explode {
-  animation: explode 0.5s ease-out forwards;
-}
-
-@keyframes explode {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(3);
-    opacity: 0;
+  @keyframes explode {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
   }
 }
 </style>
