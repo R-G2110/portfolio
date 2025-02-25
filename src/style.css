@@ -49,6 +49,10 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+}
+
 body {
   position: relative;
   width: 100%;
@@ -65,9 +69,9 @@ body {
 a {
   color: var(--text-color);
   font-weight: 500;
-  text-decoration: underline;
-  text-decoration-thickness: var(--border-width);
-  text-underline-offset: 2px;
+  text-decoration: none;
+  /* text-decoration-thickness: var(--border-width); */
+  /* text-underline-offset: 2px; */
 }
 
 main {
@@ -83,6 +87,7 @@ main {
   flex-wrap: wrap;
   overflow: auto;
 }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
