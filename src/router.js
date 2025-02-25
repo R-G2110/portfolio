@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Work from './pages/Work.vue';
-import WorkLayout from './pages/WorkLayout.vue';
 import Tecnologies from './pages/Tecnologies.vue';
 import Error404 from './pages/Error404.vue';
 
@@ -25,11 +24,6 @@ const router = createRouter({
 			path: '/work',
       name: 'work',
 			component: Work
-		},
-    {
-			path: '/worklayout',
-      name: 'worklayout',
-			component: WorkLayout
 		},
     {
 			path: '/tecnologies',
