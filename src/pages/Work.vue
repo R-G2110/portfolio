@@ -25,8 +25,8 @@ export default {
         </li>
         <li>
           <a href="https://rg-logistics.netlify.app/" target="_blank">
-            <img src="/cover2.png" alt="Screenflix">
-            <p>Screenflix</p>
+            <img src="/cover2.png" alt="rg logistics">
+            <p>R-G Logistics</p>
           </a>
         </li>
       </ul>
