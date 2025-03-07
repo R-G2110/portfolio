@@ -70,8 +70,6 @@ a {
   color: var(--text-color);
   font-weight: 500;
   text-decoration: none;
-  /* text-decoration-thickness: var(--border-width); */
-  /* text-underline-offset: 2px; */
 }
 
 main {

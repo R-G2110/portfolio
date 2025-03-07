@@ -23,6 +23,12 @@ export default {
             <p>Screenflix</p>
           </a>
         </li>
+        <li>
+          <a href="https://rg-logistics.netlify.app/" target="_blank">
+            <img src="/cover2.png" alt="Screenflix">
+            <p>Screenflix</p>
+          </a>
+        </li>
       </ul>
     </div>
   </main>
